@@ -6,10 +6,12 @@ var TicketLifetimeDays = (365 * 5);
 export class Ticketer {
     private _dateSeed : string;
     private _ticket   : string;
+    private _secret   : string;
 
-    constructor() {
+    constructor(secret:string) {
         this._dateSeed = null;
         this._ticket   = null;
+        this._secret   = secret;  
     }
 
     public ticket(body:string, dateSeed?:string) : string {
@@ -83,6 +85,6 @@ export class Ticketer {
         // Datebase can store (date, key) pairs.  Search will
         // return the key corresponding to the date that's the 
         // closest one before the date of the next key.
-        return "What a jerk";
+        return this._secret;
     }
 }
