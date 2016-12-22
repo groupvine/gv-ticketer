@@ -10,6 +10,7 @@ import {Ticketer}         from 'ticketer';
 
 let ticketer = new Ticketer(secret);
 
+let tktBody  = `${arg1}-${arg2}`;  // e.g., query args
 let tktDate  = ticketer.dateSeed(new Date());
 let ticket   = ticketer.ticket(tktBody, tktDate);
 ```
@@ -21,6 +22,7 @@ import {Ticketer}         from 'ticketer';
 
 let ticketer = new Ticketer(secret);
 
+// tktDate and constructed tktBody from query args
 if (tickter.validate(ticket, tktBody, tktDate)) {
     ...
 }
