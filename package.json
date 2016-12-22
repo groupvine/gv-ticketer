@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/davebeyer/gv-ticketer#readme",
   "dependencies": {
-    "moment": "^2.10.3"
+    "moment": "2.16.*"
   }
 }
