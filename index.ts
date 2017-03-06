@@ -43,7 +43,9 @@ export class Ticketer {
         return this._ticket;
     }
 
-    public validate(ticket:string, body:string, dateSeed:string) : string {
+    // body is either the string ticket body, or an object
+    // converted to a string
+    public validate(ticket:string, body:any, dateSeed:string) : string {
         if (typeof body !== 'string') {
             body = this.tktBody(body);  
         }

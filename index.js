@@ -31,6 +31,8 @@ var Ticketer = (function () {
         this._ticket = hash.digest('hex');
         return this._ticket;
     };
+    // body is either the string ticket body, or an object
+    // converted to a string
     Ticketer.prototype.validate = function (ticket, body, dateSeed) {
         if (typeof body !== 'string') {
             body = this.tktBody(body);
