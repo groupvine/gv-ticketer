@@ -14,7 +14,13 @@ export class Ticketer {
         this._secret   = secret;  
     }
 
-    public ticket(body:string, dateSeed?:string) : string {
+    // body is either the string ticket body, or an object
+    // converted to a string
+    public ticket(body:any, dateSeed?:string) : string {
+        if (typeof body !== 'string') {
+            body = this.tktBody(body);  
+        }
+
         if (!body) {
             if (this._ticket) {
                 return this._ticket;
@@ -38,6 +44,10 @@ export class Ticketer {
     }
 
     public validate(ticket:string, body:string, dateSeed:string) : string {
+        if (typeof body !== 'string') {
+            body = this.tktBody(body);  
+        }
+
         let i       = dateSeed.lastIndexOf('-');
         let dateStr = dateSeed.substring(0, i);
         let dt      = dateUtil(dateStr, "DDMMMYY-HH:mm:ss");
@@ -63,6 +73,20 @@ export class Ticketer {
         }
 
         return this._dateSeed;
+    }
+
+    public tktBody(tktArgs:any) {
+        let names = Object.keys(tktArgs);
+        names.sort(); // put into fixed order
+
+        let body   = '';
+        for (let i = 0; i < names.length; i++) {
+            if (tktArgs[names[i]] != null) {
+                if (body) { body += '|'; }
+                body += `${names[i]}=${tktArgs[names[i]]}`;
+            }
+        }
+        return body;
     }
 
     private _computeDateSeed(dt?:any) : string {

@@ -8,7 +8,12 @@ var Ticketer = (function () {
         this._ticket = null;
         this._secret = secret;
     }
+    // body is either the string ticket body, or an object
+    // converted to a string
     Ticketer.prototype.ticket = function (body, dateSeed) {
+        if (typeof body !== 'string') {
+            body = this.tktBody(body);
+        }
         if (!body) {
             if (this._ticket) {
                 return this._ticket;
@@ -27,6 +32,9 @@ var Ticketer = (function () {
         return this._ticket;
     };
     Ticketer.prototype.validate = function (ticket, body, dateSeed) {
+        if (typeof body !== 'string') {
+            body = this.tktBody(body);
+        }
         var i = dateSeed.lastIndexOf('-');
         var dateStr = dateSeed.substring(0, i);
         var dt = dateUtil(dateStr, "DDMMMYY-HH:mm:ss");
@@ -47,6 +55,20 @@ var Ticketer = (function () {
             this._dateSeed = this._computeDateSeed(dateSeed);
         }
         return this._dateSeed;
+    };
+    Ticketer.prototype.tktBody = function (tktArgs) {
+        var names = Object.keys(tktArgs);
+        names.sort(); // put into fixed order
+        var body = '';
+        for (var i = 0; i < names.length; i++) {
+            if (tktArgs[names[i]] != null) {
+                if (body) {
+                    body += '|';
+                }
+                body += names[i] + "=" + tktArgs[names[i]];
+            }
+        }
+        return body;
     };
     Ticketer.prototype._computeDateSeed = function (dt) {
         if (dt.getMonth || dt.month) {
@@ -71,4 +93,3 @@ var Ticketer = (function () {
     return Ticketer;
 }());
 exports.Ticketer = Ticketer;
-//# sourceMappingURL=index.js.map
