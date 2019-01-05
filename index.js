@@ -1,8 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var dateUtil = require("moment/moment");
 var crypto = require("crypto");
 var TicketLifetimeDays = (365 * 5);
-var Ticketer = (function () {
+var Ticketer = /** @class */ (function () {
     function Ticketer(secret) {
         this._dateSeed = null;
         this._ticket = null;
@@ -95,3 +96,4 @@ var Ticketer = (function () {
     return Ticketer;
 }());
 exports.Ticketer = Ticketer;
+//# sourceMappingURL=index.js.map

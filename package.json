@@ -4,7 +4,9 @@
   "description": "GroupVine Ticketing Utility",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "reinstall": "rm -rf node_modules && npm install"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
   },
   "homepage": "https://github.com/davebeyer/gv-ticketer#readme",
   "dependencies": {
-    "moment": "^2.10.3"
+    "@types/node": "^10.12.18",
+    "moment": "^2.10.3",
+    "typescript": "^3.1.6"
   }
 }
