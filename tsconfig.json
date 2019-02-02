@@ -7,6 +7,8 @@
     "module": "commonjs",
     "declaration": false,
     "noImplicitAny": false,
+    "noUnusedLocals" : true,
+    "noUnusedParameters" : true,
     "removeComments": false,
     "noLib": false,
     "emitDecoratorMetadata": true,

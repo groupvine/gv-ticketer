@@ -86,6 +86,7 @@ var Ticketer = /** @class */ (function () {
         this._dateSeed += '-' + Math.floor(Math.random() * 10000);
         return this._dateSeed;
     };
+    // @ts-ignore: unused parameter
     Ticketer.prototype._getKey = function (dateSeed) {
         // Fetch from datebase based on date 
         // Datebase can store (date, key) pairs.  Search will

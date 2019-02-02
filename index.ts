@@ -106,6 +106,7 @@ export class Ticketer {
         return this._dateSeed;
     }
 
+    // @ts-ignore: unused parameter
     private _getKey(dateSeed) : string {
         // Fetch from datebase based on date 
         // Datebase can store (date, key) pairs.  Search will
