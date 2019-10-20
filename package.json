@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davebeyer/gv-ticketer.git"
+    "url": "git+https://github.com/groupvine/gv-ticketer.git"
   },
   "keywords": [
     "GroupVine",
@@ -19,9 +19,9 @@
   "author": "Dave Beyer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davebeyer/gv-ticketer/issues"
+    "url": "https://github.com/groupvine/gv-ticketer/issues"
   },
-  "homepage": "https://github.com/davebeyer/gv-ticketer#readme",
+  "homepage": "https://github.com/groupvine/gv-ticketer#readme",
   "dependencies": {
     "@types/node": "^10.12.18",
     "moment": "^2.10.3",
