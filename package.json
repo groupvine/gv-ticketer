@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/groupvine/gv-ticketer#readme",
   "dependencies": {
-    "@types/node": "^10.12.18",
+    "@types/node": "^12.19.0",
     "moment": "^2.10.3",
-    "typescript": "^3.1.6"
+    "typescript": "^3.4.5"
   }
 }

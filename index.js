@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Ticketer = void 0;
 var dateUtil = require("moment/moment");
 var crypto = require("crypto");
 var TicketLifetimeDays = (365 * 5);
